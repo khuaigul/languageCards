@@ -215,6 +215,7 @@ void MainWindow::on_add_card_clicked()
     bool ok;
     QString newWord = QInputDialog::getText(this, tr("Add a new card"), tr("Enter a word:"), QLineEdit::Normal, QDir::home().dirName(), &ok);
     newWord = newWord.simplified();
+    newWord = newWord.toLower();
     if (ok && !newWord.isEmpty())
     {
         if(decks[current_deck].find(newWord) != decks[current_deck].end())
@@ -228,6 +229,7 @@ void MainWindow::on_add_card_clicked()
         bool ok1;
         QString newTranslation = QInputDialog::getText(this, tr("Add a new card"), tr("Enter a translation:"), QLineEdit::Normal, QDir::home().dirName(), &ok1);
         newTranslation = newTranslation.simplified();
+        newTranslation = newTranslation.toLower();
         if (ok1 && !newTranslation.isEmpty())
         {
             decks[current_deck].insert(newWord, newTranslation);

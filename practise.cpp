@@ -199,6 +199,7 @@ void MainWindow::play()
         if (ok && !text.isEmpty())
         {
             text = text.simplified();
+            text = text.toLower();
             if (text == decks[current_deck][lst[i].second])
             {
                 stats[current_deck][lst[i].second].first++;
